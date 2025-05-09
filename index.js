@@ -4,14 +4,14 @@ require('dotenv').config();
 // 2. Import dependencies
 const express = require('express');
 const cors = require('cors');
-const db = require('./db/Connection'); // This connects to MongoDB
-const authRoutes = require('./Routes/AuthRoutes') 
+const db = require('./db/connection'); // This connects to MongoDB
+const authRoutes = require('./routes/Index') 
 
 const authServer = express();
 
 authServer.use(cors());
 authServer.use(express.json()); 
-authServer.use('/auth', authRoutes); 
+authServer.use('/api',authRoutes); 
 
 authServer.get('/', (req, res) => {
   res.send("Welcome to Auth Server");
